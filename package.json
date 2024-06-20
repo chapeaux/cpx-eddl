@@ -1,10 +1,10 @@
 {
   "name": "@chapeaux/cpx-eddl",
-  "version": "0.10.0",
-  "description": "Chapeaux Newsdesk Component",
+  "version": "0.20.0",
+  "description": "Chapeaux EDDL Component",
   "type": "module",
-  "main": "cpx-newsdesk.js",
-  "module": "cpx-newsdesk.js",
+  "main": "cpx-eddl.js",
+  "module": "cpx-eddl.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "",
@@ -33,6 +33,6 @@
     "@esm-bundle/chai": "^4.3.4-fix.0",
     "@open-wc/testing": "3.1.7",
     "@web/test-runner": "^0.14.0",
-    "typescript": "^4.0.2"
+    "typescript": "^5.1.3"
   }
 }

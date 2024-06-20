@@ -11,7 +11,7 @@
     "declaration": true,
     "declarationDir": ".",
     "esModuleInterop": true,
-    "lib": ["ES6", "ESNext", "DOM"],
+    "lib": ["ES2020", "ESNext", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "moduleResolution": "Node",
     "outDir": ".",
@@ -34,7 +34,7 @@
     "strictPropertyInitialization": false,
     "suppressExcessPropertyErrors": false,
     "suppressImplicitAnyIndexErrors": false,
-    "target": "ES6"
+    "target": "ES2020"
   },
   "include": ["src/**/*.ts"],
   "exclude": ["src/**/*.test.ts"]

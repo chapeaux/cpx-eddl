@@ -1,6 +1,5 @@
-var _a, _b;
 function CombineEventData(payload, target, data) {
-    let combination = Object.assign(payload(target), data !== null && data !== void 0 ? data : {});
+    let combination = Object.assign(payload(target), data ?? {});
     return combination;
 }
 const eventMap = new Map([
@@ -75,10 +74,9 @@ const eventMap = new Map([
             payload: 'onsiteSearch',
             data: {
                 onsiteSearch: (tgt, data) => {
-                    var _a;
                     const kw = { searchType: '', searchTerm: '', searchMethod: '' };
                     if (data['keyword']) {
-                        data['keyword'] = Object.assign(kw, (_a = data['keyword']) !== null && _a !== void 0 ? _a : {});
+                        data['keyword'] = Object.assign(kw, data['keyword'] ?? {});
                     }
                     else {
                         data = Object.assign({
@@ -171,19 +169,21 @@ export class ReporterEvent extends Event {
         if (this.obj && this.obj.payload && this.obj.data) {
             const objEntries = new Map([[
                     this.obj.payload,
-                    this.obj.data[this.obj.payload](this.currentTarget, data !== null && data !== void 0 ? data : {})
+                    this.obj.data[this.obj.payload](this.currentTarget, data ?? {})
                 ]]);
             this.data = Object.fromEntries(objEntries);
         }
     }
 }
-const reporter = document.querySelector(`script[src*='${(new URL(import.meta.url)).pathname}']:not([reported])`);
-if (reporter instanceof HTMLElement) {
-    if (reporter.getAttribute('reported') == null) {
-        const data = JSON.parse((_a = reporter.textContent) !== null && _a !== void 0 ? _a : '');
-        const emitName = (_b = reporter.getAttribute('data-emit')) !== null && _b !== void 0 ? _b : 'cpx-report';
-        globalThis.dispatchEvent(new ReporterEvent(reporter.dataset.event, data, emitName));
-        reporter.setAttribute('reported', '');
+if (import.meta.url) {
+    const reporter = document.querySelector(`script[src*='${(new URL(import.meta.url)).pathname}']:not([reported])`);
+    if (reporter instanceof HTMLElement) {
+        if (reporter.getAttribute('reported') == null) {
+            const data = JSON.parse(reporter.textContent ?? '');
+            const emitName = reporter.getAttribute('data-emit') ?? 'cpx-report';
+            globalThis.dispatchEvent(new ReporterEvent(reporter.dataset.event, data, emitName));
+            reporter.setAttribute('reported', '');
+        }
     }
 }
 globalThis['ReporterEvent'] = ReporterEvent;
