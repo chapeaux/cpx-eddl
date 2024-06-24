@@ -209,10 +209,13 @@ if (import.meta.url) {
   const reporter = document.querySelector(`script[src*='${(new URL(import.meta.url)).pathname}']:not([reported])`);
   if (reporter instanceof HTMLElement) {
     if (reporter.getAttribute('reported') == null) {
-      const data = JSON.parse(reporter.textContent ?? '');
-      const emitName = reporter.getAttribute('data-emit') ?? 'cpx-report';
-      globalThis.dispatchEvent(new ReporterEvent(reporter.dataset.event, data, emitName));
-      reporter.setAttribute('reported','');
+      const txt = reporter.textContent;
+      if (txt !== null && txt.length > 0) {
+        const data = JSON.parse(reporter.textContent ?? '');
+        const emitName = reporter.getAttribute('data-emit') ?? 'cpx-report';
+        globalThis.dispatchEvent(new ReporterEvent(reporter.dataset.event, data, emitName));
+        reporter.setAttribute('reported','');
+      }
     } 
   }
 }
