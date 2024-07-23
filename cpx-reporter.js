@@ -118,7 +118,6 @@ export class CPXReporter extends HTMLElement {
         }
     }
     report(e) {
-        var _a, _b, _c;
         if (this.debug !== null) {
             if (this.debug !== 'verbose') {
                 console.log('DEBUG ON');
@@ -129,10 +128,10 @@ export class CPXReporter extends HTMLElement {
         }
         const detail = e['detail'];
         if (this.option) {
-            this.data = Object.assign((_a = this.data) !== null && _a !== void 0 ? _a : {}, (_b = detail[this.option]) !== null && _b !== void 0 ? _b : {});
+            this.data = Object.assign(this.data ?? {}, detail[this.option] ?? {});
         }
         else {
-            this.data = Object.assign((_c = this.data) !== null && _c !== void 0 ? _c : {}, detail !== null && detail !== void 0 ? detail : {});
+            this.data = Object.assign(this.data ?? {}, detail ?? {});
         }
         this.dispatchEvent(new ReporterEvent(this.event, this.data, this.emit));
         this.dispatchEvent(new CustomEvent(this.evt, { bubbles: true, composed: true }));

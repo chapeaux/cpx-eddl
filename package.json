@@ -1,7 +1,7 @@
 {
   "name": "@chapeaux/cpx-eddl",
-  "version": "0.10.0",
-  "description": "Chapeaux EDDL Components",
+  "version": "0.50.0",
+  "description": "Chapeaux EDDL Component",
   "type": "module",
   "main": "cpx-eddl.js",
   "module": "cpx-eddl.js",
@@ -30,6 +30,9 @@
   },
   "homepage": "https://github.com/chapeaux/cpx-eddl",
   "devDependencies": {
-    "typescript": "^4.0.2"
+    "@esm-bundle/chai": "^4.3.4-fix.0",
+    "@open-wc/testing": "3.1.7",
+    "@web/test-runner": "^0.14.0",
+    "typescript": "^5.1.3"
   }
 }
