@@ -1,15 +1,5 @@
 import { ReporterEvent } from "./reporter.js";
 export class CPXReporter extends HTMLElement {
-    constructor() {
-        super();
-        this._debug = null;
-        this._scope = 'global';
-        this._data = {};
-        this.tasks = new Set(['beat', 'event', 'data']);
-        this._ready = false;
-        this._emit = 'cpx-report';
-        this.report = this.report.bind(this);
-    }
     static get tag() { return 'cpx-reporter'; }
     get debug() {
         return this._debug;
@@ -66,6 +56,16 @@ export class CPXReporter extends HTMLElement {
         if (this._data === val)
             return;
         this._data = val;
+    }
+    constructor() {
+        super();
+        this._debug = null;
+        this._scope = 'global';
+        this._data = {};
+        this.tasks = new Set(['beat', 'event', 'data']);
+        this._ready = false;
+        this._emit = 'cpx-report';
+        this.report = this.report.bind(this);
     }
     get ready() { return this._ready; }
     set ready(val) {
