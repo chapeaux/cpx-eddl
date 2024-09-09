@@ -1,11 +1,6 @@
-demo
-src
-tsconfig.*
 node_modules
 **/package-lock.json
 dist
 *.pem
 *.crt
-deno.*
-tasks
-.vscode
+**/cov_profile/**

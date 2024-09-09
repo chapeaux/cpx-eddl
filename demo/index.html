@@ -11,9 +11,7 @@
             console.log('NEWSFLASH:', e.detail)
         });
     </script>
-    <script type="module" src="/cpx-newsdesk/newsdesk.js"></script>
-    <script type="module" src="/cpx-newsdesk/newsdesk.js" data-event="cpx-report"></script>
-    <script type="module" src="/cpx-reporter/reporter.js" data-emit="cpx-report" data-event="Page Load Started">
+    <script type="module" src="../cpx-eddl.js" data-event="Page Load Started">
         {
         "analyticsTitle": "Extracting information from Python source code",
         "blogAuthor": "Fridolin Pokorny",
@@ -42,11 +40,11 @@
         "products": "OpenShift, RHEL"
        }
     </script>
-    <script type="module" src="/cpx-reporter/cpx-reporter.js"></script>
-    <script type="module" src="/cpx-user/cpx-user.js"></script>
-    <script type="module" src="/cpx-cookie/cpx-cookie.js"></script>
+    <!-- <script type="module" src="/cpx-reporter/cpx-reporter.js"></script> -->
+    <script type="module" src="https://unpkg.com/@chapeaux/cpx-user/cpx-user.js"></script>
+    <script type="module" src="https://unpkg.com/@chapeaux/cpx-cookie/cpx-cookie.js"></script>
     <script src="https://sso.stage.redhat.com/auth/js/keycloak.js"></script>
-    <script type="module" src="/cpx-keycloak/cpx-keycloak.js"></script>
+    <script type="module" src="../cpx-keycloak.js"></script>
     
     <style>
         fieldset {
@@ -302,6 +300,20 @@
                     <pre data-event="Content Listing Displayed"></pre>
                 </details>
                 <cpx-reporter event="Content Listing Displayed"></cpx-reporter>
+            </li>
+            <li>
+                <details>
+                    <summary>Content Listing Item Clicked</summary>
+                    <pre data-event="Content Listing Item Clicked"></pre>
+                </details>
+                <cpx-reporter event="Content Listing Item Clicked" beat="click">
+                    <script type="data">{
+                        "displayPosition": "TEST-POSITION", 
+                        "linkType": "COOL-LINK", 
+                        "contentTitle": "TITLE FOR USE"
+                    }</script>
+                    <input type="checkbox">
+                </cpx-reporter>
             </li>
         </ul>
         </fieldset>

@@ -1,6 +1,6 @@
 {
   "name": "@chapeaux/cpx-eddl",
-  "version": "0.40.0",
+  "version": "0.50.0",
   "description": "Chapeaux EDDL Component",
   "type": "module",
   "main": "cpx-eddl.js",

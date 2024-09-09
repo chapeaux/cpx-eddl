@@ -13,6 +13,7 @@ import { ReporterEvent } from "./reporter.js";
  *  @prop {string} debug attribute-only or "verbose" for different variations
  *  @emits {ReporterEvent} cpx-report - customizable through the emit attribute
  */
+
 export class CPXReporter extends HTMLElement {
     static get tag() { return 'cpx-reporter'; }
     _debug:string = null;

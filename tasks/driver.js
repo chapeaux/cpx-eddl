@@ -1,4 +1,4 @@
-import { decode as b64Decode } from 'https://deno.land/std/encoding/base64.ts';
+import { decodeBase64 as b64Decode } from 'https://deno.land/std/encoding/base64.ts';
 
 class CPXWebDriver {
     browsers = new Map([

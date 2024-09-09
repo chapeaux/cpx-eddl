@@ -31,6 +31,9 @@ const eventMap = new Map([
                                 a.href = r;
                                 return a.href;
                             }
+                            else {
+                                return '';
+                            }
                         })(document.referrer),
                         queryParameters: ((url) => Object.fromEntries(url.searchParams))(new URL(window.location.href)),
                         siteExperience: ((w) => (w > 992) ? 'desktop' : ((w > 768) ? 'tablet' : 'mobile'))(window.innerWidth),

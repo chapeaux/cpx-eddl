@@ -37,26 +37,26 @@ const makeIndexHtml = (list) => `
 </html>`;
 
 router
-  .get("/", async (ctx) => {
-    const path = "./components";
+  // .get("/", async (ctx) => {
+  //   const path = "./components";
 
-    let list = "";
-    for await (const dirEntry of Deno.readDir(path)) {
-      if (dirEntry.isDirectory) {
-        const name = dirEntry.name;
-        const demoIndex = `${path}/${name}/demo/index.html`;
-        try {
-          await Deno.readFile(demoIndex);
-          list += `<li><a href="${name}/demo">${name}</a></li>`;
-        } catch (_unused) {
-          list += `<li>${name} (no demo)</li>`;
-        }
-      }
-    }
+  //   let list = "";
+  //   for await (const dirEntry of Deno.readDir(path)) {
+  //     if (dirEntry.isDirectory) {
+  //       const name = dirEntry.name;
+  //       const demoIndex = `${path}/${name}/demo/index.html`;
+  //       try {
+  //         await Deno.readFile(demoIndex);
+  //         list += `<li><a href="${name}/demo">${name}</a></li>`;
+  //       } catch (_unused) {
+  //         list += `<li>${name} (no demo)</li>`;
+  //       }
+  //     }
+  //   }
 
-    ctx.response.body = makeIndexHtml(list);
-    ctx.response.type = "text/html";
-  })
+  //   ctx.response.body = makeIndexHtml(list);
+  //   ctx.response.type = "text/html";
+  // })
   .get("/favicon.ico", async (ctx) => {
     await ctx.send({
       root: Deno.cwd() + "/assets",
@@ -83,7 +83,7 @@ app.use(router.allowedMethods());
 
 app.use(async (ctx) => {
   await ctx.send({
-    root: Deno.cwd() + "/components",
+    root: Deno.cwd(),
     index: "index.html",
   });
 });
