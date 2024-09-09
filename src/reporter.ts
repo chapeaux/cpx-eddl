@@ -27,7 +27,7 @@ const eventMap = new Map([
           "pageTitle": "", //Red Hat Enterprise Linux operating system
           "pageType": "", // pattern_template
           "pageSubType": "", // Product
-          "pageStatus": "",
+          "pageStatus": "published",
           previousPage: ((r) => { 
             if (r) {
               let a = document.createElement("a");
@@ -38,9 +38,9 @@ const eventMap = new Map([
           queryParameters: ((url) => Object.fromEntries(url.searchParams))(new URL(window.location.href)),
           siteExperience: ((w)=> (w > 992) ? 'desktop' : ((w > 768) ? 'tablet' : 'mobile'))(window.innerWidth),
           "siteLanguage": "",
-          "subsection": "", // linux-platforms
-          "subsection2": "", // enterprise-linux2
-          "subsection3": "" // try-it
+          "subsection": subsections[0] || "", // linux-platforms
+          "subsection2": subsections[1] || "", // enterprise-linux2
+          "subsection3": subsections[2] || "" // try-it
           // "taxonomyMetaHreflang": [""],
           // "taxonomyRegion": [""],
           // "taxonomyBlogPostCategory": [""],

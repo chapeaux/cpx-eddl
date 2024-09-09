@@ -24,7 +24,7 @@ const eventMap = new Map([
                         "pageTitle": "",
                         "pageType": "",
                         "pageSubType": "",
-                        "pageStatus": "",
+                        "pageStatus": "published",
                         previousPage: ((r) => {
                             if (r) {
                                 let a = document.createElement("a");
@@ -35,9 +35,9 @@ const eventMap = new Map([
                         queryParameters: ((url) => Object.fromEntries(url.searchParams))(new URL(window.location.href)),
                         siteExperience: ((w) => (w > 992) ? 'desktop' : ((w > 768) ? 'tablet' : 'mobile'))(window.innerWidth),
                         "siteLanguage": "",
-                        "subsection": "",
-                        "subsection2": "",
-                        "subsection3": ""
+                        "subsection": subsections[0] || "",
+                        "subsection2": subsections[1] || "",
+                        "subsection3": subsections[2] || ""
                     }, data);
                 }
             }
